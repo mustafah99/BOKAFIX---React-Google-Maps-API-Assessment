@@ -1,13 +1,13 @@
-import "./App.css";
+import Map from "./map/Map";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Other</h1>
+        <Map />
       </header>
     </div>
   );
-}
+};
 
 export default App;
