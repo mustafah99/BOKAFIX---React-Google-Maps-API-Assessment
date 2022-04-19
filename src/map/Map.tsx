@@ -8,7 +8,10 @@ const containerStyle = {
   margin: "0 auto",
 };
 
-const center = {
+const center: {
+  lat: number;
+  lng: number;
+} = {
   lat: -3.745,
   lng: -38.523,
 };
@@ -42,6 +45,12 @@ const Map: () => JSX.Element = () => {
       onLoad={onLoad}
       onUnmount={onUnmount}
     >
+      <button className="inline-flex fixed bottom-16 left-[10rem] items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#2EC1EF] hover:bg-indigo-700 transition-all">
+        Teleport Me Somewhere Random
+      </button>
+      <button className="inline-flex fixed bottom-16 right-[10rem] items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#9A2EEF] hover:bg-indigo-700 transition-all">
+        Take Me Home
+      </button>
       <></>
     </GoogleMap>
   ) : (
