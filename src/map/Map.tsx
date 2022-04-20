@@ -12,14 +12,14 @@ const center: {
   lat: number;
   lng: number;
 } = {
-  lat: -3.745,
-  lng: -38.523,
+  lat: -97.822,
+  lng: 37.751,
 };
 
 const Map: () => JSX.Element = () => {
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "AIzaSyBCNhke0lSL-ji2W8RLRKDm4UeeC25p5vY",
+    googleMapsApiKey: "AIzaSyCRKQe9qGt9ilxAPDnaUu4Vtj7-Y6zMILI",
   });
 
   const [map, setMap] = React.useState(null);
@@ -37,6 +37,15 @@ const Map: () => JSX.Element = () => {
     setMap(null);
   }, []);
 
+  const randomLocation = () => {
+    <GoogleMap
+      center={{
+        lat: -97.852,
+        lng: 37.751,
+      }}
+    ></GoogleMap>;
+  };
+
   return isLoaded ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
@@ -45,12 +54,18 @@ const Map: () => JSX.Element = () => {
       onLoad={onLoad}
       onUnmount={onUnmount}
     >
-      <button className="inline-flex fixed bottom-16 left-[10rem] items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#2EC1EF] hover:bg-indigo-700 transition-all">
-        Teleport Me Somewhere Random
-      </button>
-      <button className="inline-flex fixed bottom-16 right-[10rem] items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#9A2EEF] hover:bg-indigo-700 transition-all">
-        Take Me Home
-      </button>
+      <div className="m-auto">
+        <button
+          onClick={randomLocation}
+          className="inline-flex fixed bottom-16 left-[10rem] items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#2EC1EF] hover:bg-indigo-700 transition-all"
+        >
+          Teleport Me Somewhere Random
+        </button>
+        <button className="inline-flex fixed bottom-16 right-[10rem] items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#9A2EEF] hover:bg-indigo-700 transition-all">
+          Take Me Home
+        </button>
+      </div>
+
       <></>
     </GoogleMap>
   ) : (
